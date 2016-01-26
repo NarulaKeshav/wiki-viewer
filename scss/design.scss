@@ -39,7 +39,7 @@ body {
     background-size: cover;
     height: 100vh;
     position: relative;
-    padding-top: 70px;
+    padding-top: 50px;
 }
 a:focus,
 a:hover {
@@ -61,10 +61,21 @@ a:hover {
     font-size: 18px;
     padding: 30px 21px;
     outline: 0;
+    margin-bottom: 30px;
     // padding-top: 10px;
 }
 ::-webkit-input-placeholder { 
     color: #BBB;
+}
+.card {
+    @include transition(0.5s);
+    background: $white;
+    margin-bottom: 20px;
+    padding: 15px 20px;
+    border-left: 3px solid $gray;
+}
+.card:hover {
+    border-color: $primary;
 }
 
 /* Button CSS */
@@ -98,4 +109,13 @@ a:hover {
     font-size: 22px;
     color: #888;
     font-weight: $light;
+}
+#card-title {
+    font-weight: $light;
+    color: #444;
+    font-size: 20px;
+}
+#card-description {
+    color: $gray;
+    font-size: 15px;
 }

@@ -5,6 +5,7 @@ $(document).ready(function() {
     var d = document;
     var input = d.getElementById("input");
     var button = d.getElementById("random");
+    var appendToResults = d.getElementById("results");
 
     // API endpoint
     var url = "https://en.wikipedia.org/w/api.php?action=query";
@@ -27,6 +28,31 @@ $(document).ready(function() {
 
     function search(url) {
         console.log(url);
+    }
+
+    // Creates the card elements
+    function createCardElements() {
+        var card = d.createElement("div");
+        var cardTitle = d.createElement("p");
+        var cardDescription = d.createElement("p");
+        assignProperties(card, cardTitle, cardDescription);
+    }
+
+    function assignProperties(card, title, description) {
+        // Assign class and id
+        card.className = "row card";
+        title.setAttribute("id", "card-title");
+        description.setAttribute("id", "card-description");
+        // Assign values of card title and description
+    }
+
+    function generateCard(card, title, description) {
+        // Adds card title and description to the card
+        card.appendChild(title);
+        card.appendChild(description);
+
+        // Adds card to the result div tag
+        appendToResults.appendChild(card);
     }
 
     // Initiate Wow Animation

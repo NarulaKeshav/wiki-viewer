@@ -6,49 +6,53 @@ $(document).ready(function() {
     var input = d.getElementById("input");
     var button = d.getElementById("random");
     var appendToResults = d.getElementById("results");
+    var showMessage = d.getElementById("show-message");
     var searchTerm = d.getElementById("search-term");
 
     // Post title and descrption
-    var postTitle = d.getElementById("card-title");
-    var postDescription = d.getElementById("card-description");
-    var postLink = d.getElementById("external-link");
+    var postTitle = "";
+    var postDescription = "";
+    var postLink = "";
 
     // API endpoint
     var url = "http://en.wikipedia.org/w/api.php?action=opensearch&search=";
     var callback = "&callback=?";
 
-    // Enter key trigger as a button press
+    // Searches for content when enter is triggered
     $("#input").keypress(function(event){
         if(event.keyCode == 13){
             event.preventDefault();
-            generateURL(url, input.value);
+            generateURL(url);
             searchTerm.innerHTML = input.value;
-            $(".showing-results").css("display", "inline");
-            $("#input").val("");
+            $(".showing-results").css("display", "block");
+            input.value = "";
         }
     });
 
     // Generates the url and passes it to the search function
-    function generateURL(url, value) {
-        value = value.replace(/ /g, "%20");
+    function generateURL(url) {
+        var value = input.value.replace(/ /g, "%20");
         var link = url + value  + callback;
         search(link);
     }
 
-    function search(url, value) {
+    // Parses the JSON and retrives the post title, description, and link
+    function search(url) {
         console.log(url);
         $.getJSON(url, function(data) {
             var numberOfResults = data[1].length;
 
             // If there are no search results
             if(numberOfResults < 1) {
-                $(".showing-results").html("Uh oh! No results for ");
-                $("#search-term").html(input.innerHTML);
+                showMessage.innerHTML = "Uh oh! No results for ";
+                searchTerm.innerHTML = input.value;
             }
             else {
+                showMessage.innerHTML = "Showing Results for ";
+                searchTerm.innerHTML = input.value;
                 for(var i = 0; i < data[1].length; i++) {
-                    postTitle.innerHTML = data[1][i];
-                    postDescription.innerHTML = data[2][i];
+                    postTitle = data[1][i];
+                    postDescription = data[2][i];
                     postLink = data[3][i];
 
                     // Create the card elements
@@ -60,10 +64,10 @@ $(document).ready(function() {
 
     // Creates the card elements
     function createCardElements() {
-        var wikiLink = d.createElement("a");
-        var card = d.createElement("div");
-        var cardTitle = d.createElement("p");
-        var cardDescription = d.createElement("p");
+        var wikiLink = d.createElement("a"); // creates link tag
+        var card = d.createElement("div"); // creates div tag
+        var cardTitle = d.createElement("p"); // creates title 
+        var cardDescription = d.createElement("p"); // creates description
         setAttributes(card, cardTitle, cardDescription, wikiLink);
         generateCard(card, cardTitle, cardDescription, wikiLink);
     }
@@ -71,16 +75,19 @@ $(document).ready(function() {
     // Sets necessary attributes
     function setAttributes(card, title, description, link) {
         // Assign class and id
-        link.setAttribute("id", "external-link");
         link.setAttribute("href", postLink);
+        link.setAttribute("target", "_blank");
 
         card.className = "row card";
 
         title.setAttribute("id", "card-title");
-        title = postTitle.innerHTML;
+        title.innerHTML = postTitle;
 
         description.setAttribute("id", "card-description");
-        description = postDescription.innerHTML;
+        if(postDescription.length === 0) {
+            description.innerHTML = "No description for this article. Click to find out about it.";
+        }
+        else description.innerHTML = postDescription;
     }
 
     // Generates the card and appends to the results
@@ -93,7 +100,7 @@ $(document).ready(function() {
         link.appendChild(card);
 
         // Adds card to the result div tag
-        appendToResults.appendChild(card);
+        appendToResults.appendChild(link);
     }
 
     // Initiate Wow Animation

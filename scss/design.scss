@@ -3,9 +3,10 @@
 
 /* Color Declarations */
 $white: #FFF;
+$light-gray: #AAA;
 $gray: #7F8C8D;
 $primary: #E74C3C;
-$secondary: #C0392B;
+$secondary: #D94B3D;
 
 /* Declaring Variables */
 $background: #F2F4F6;
@@ -79,7 +80,10 @@ a:hover {
 }
 
 /* Button CSS */
-.btn-random {
+.btn-random,
+.btn-random:focus,
+.btn-fork,
+.btn-fork:focus {
     @include transition(0.5s);
     background: $primary;
     color: $white;
@@ -87,17 +91,24 @@ a:hover {
     height: 50px;
     border-radius: 100%;
     position: fixed;
-    top: 15px;
+    top: 30px;
     right: 30px;
     padding: 8px 18px;
     padding-top: 15px;
+    box-shadow: 1px 2px 4px #DDD;
 }
-.btn-random:hover {
-    @include rotate(360deg);
-}
-.btn-random:hover {
+.btn-random:hover,
+.btn-fork:hover {
     background: $secondary;
     color: $white;
+    box-shadow: 0px 2px 5px $light-gray;
+}
+.btn-fork {
+    top: 90px;
+    background: $gray;
+}
+.btn-fork:hover {
+    background: #444;
 }
 
 /* Text Property CSS */
@@ -111,11 +122,20 @@ a:hover {
     font-weight: $light;
 }
 #card-title {
+    @include transition(0.5s);
     font-weight: $light;
-    color: #444;
+    color: #777;
     font-size: 20px;
 }
 #card-description {
-    color: $gray;
+    @include transition(0.5s);
+    color: $light-gray;
     font-size: 15px;
+    line-height: 24px;
+}
+.card:hover #card-title {
+    color: #444;
+}
+.card:hover #card-description {
+    color: $gray;
 }

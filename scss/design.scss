@@ -88,7 +88,7 @@ a:hover {
 .btn-fork:focus {
     @include transition(0.5s);
     color: $white;
-    background: #CCC;
+    background: #AAA;
     border-radius: 2px;
     width: 100px;
     position: fixed;
@@ -104,7 +104,8 @@ a:hover {
     background: $primary;
     color: $white;
 }
-.btn-fork {
+.btn-fork,
+.btn-fork:focus {
     top: 80px;
 }
 .btn-fork:hover {
@@ -144,7 +145,6 @@ a:hover {
     color: #888;
     font-size: 12px;
     font-weight: normal;
-    display: none;
 }
 #search-term {
     color: $primary;

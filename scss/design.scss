@@ -139,3 +139,13 @@ a:hover {
 .card:hover #card-description {
     color: $gray;
 }
+.showing-results {
+    text-transform: uppercase;
+    color: #888;
+    font-size: 12px;
+    font-weight: normal;
+    display: none;
+}
+#search-term {
+    color: $primary;
+}

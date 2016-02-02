@@ -77,7 +77,8 @@ a:hover {
 }
 .card:hover {
     border-color: $primary;
-    box-shadow: 2px 4px 6px #CCC;
+    box-shadow: 0px 4px 6px #CCC;
+    cursor: pointer;
 }
 
 /* Button CSS */
@@ -86,27 +87,25 @@ a:hover {
 .btn-fork,
 .btn-fork:focus {
     @include transition(0.5s);
-    background: $primary;
     color: $white;
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
+    background: #CCC;
+    border-radius: 2px;
+    width: 100px;
     position: fixed;
     top: 30px;
     right: 30px;
-    padding: 8px 18px;
-    padding-top: 15px;
-    box-shadow: 1px 2px 4px #DDD;
+    padding: 8px 10px;
+    padding-top: 10px;
+    font-size: 12px;
+    text-transform: uppercase;
 }
 .btn-random:hover,
 .btn-fork:hover {
-    background: $secondary;
+    background: $primary;
     color: $white;
-    box-shadow: 0px 2px 5px $light-gray;
 }
 .btn-fork {
-    top: 90px;
-    background: $gray;
+    top: 80px;
 }
 .btn-fork:hover {
     background: #444;

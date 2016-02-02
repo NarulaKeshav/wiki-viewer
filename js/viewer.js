@@ -6,11 +6,12 @@ $(document).ready(function() {
     var input = d.getElementById("input");
     var button = d.getElementById("random");
     var appendToResults = d.getElementById("results");
+    var searchTerm = d.getElementById("search-term");
 
     // Post title and descrption
     var postTitle = d.getElementById("card-title");
     var postDescription = d.getElementById("card-description");
-    var postLink = "";
+    var postLink = d.getElementById("external-link");
 
     // API endpoint
     var url = "http://en.wikipedia.org/w/api.php?action=opensearch&search=";
@@ -21,6 +22,8 @@ $(document).ready(function() {
         if(event.keyCode == 13){
             event.preventDefault();
             generateURL(url, input.value);
+            searchTerm.innerHTML = input.value;
+            $(".showing-results").css("display", "inline");
             $("#input").val("");
         }
     });
@@ -50,10 +53,6 @@ $(document).ready(function() {
 
                     // Create the card elements
                     createCardElements();
-
-                    console.log(postTitle);
-                    console.log(postDescription);
-                    console.log(postLink);
                 }
             }
         });
@@ -69,6 +68,7 @@ $(document).ready(function() {
         generateCard(card, cardTitle, cardDescription, wikiLink);
     }
 
+    // Sets necessary attributes
     function setAttributes(card, title, description, link) {
         // Assign class and id
         link.setAttribute("id", "external-link");
@@ -83,6 +83,7 @@ $(document).ready(function() {
         description = postDescription.innerHTML;
     }
 
+    // Generates the card and appends to the results
     function generateCard(card, title, description, link) {
         // Adds card title and description to the card
         card.appendChild(title);

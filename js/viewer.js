@@ -5,6 +5,7 @@ $(document).ready(function() {
     var d = document;
     var input = d.getElementById("input");
     var button = d.getElementById("random");
+    var clearButton = d.getElementById("clear");
     var appendToResults = d.getElementById("results");
     var showMessage = d.getElementById("show-message");
     var searchTerm = d.getElementById("search-term");
@@ -23,9 +24,12 @@ $(document).ready(function() {
         if(event.keyCode == 13){
             event.preventDefault();
             generateURL(url);
-            searchTerm.innerHTML = input.value;
+            console.log(input.value);
             $(".showing-results").css("display", "block");
+            showMessage.innerHTML = "Showing Results for ";
+            searchTerm.innerHTML = input.value;
             input.value = "";
+            $("#clear").prop("disabled", false);
         }
     });
 
@@ -38,18 +42,15 @@ $(document).ready(function() {
 
     // Parses the JSON and retrives the post title, description, and link
     function search(url) {
-        console.log(url);
+        appendToResults.innerHTML = null;
         $.getJSON(url, function(data) {
             var numberOfResults = data[1].length;
 
             // If there are no search results
             if(numberOfResults < 1) {
                 showMessage.innerHTML = "Uh oh! No results for ";
-                searchTerm.innerHTML = input.value;
             }
             else {
-                showMessage.innerHTML = "Showing Results for ";
-                searchTerm.innerHTML = input.value;
                 for(var i = 0; i < data[1].length; i++) {
                     postTitle = data[1][i];
                     postDescription = data[2][i];
@@ -85,7 +86,7 @@ $(document).ready(function() {
 
         description.setAttribute("id", "card-description");
         if(postDescription.length === 0) {
-            description.innerHTML = "No description for this article. Click to find out about it.";
+            description.innerHTML = "No description for this article. Click to find out about it 😎";
         }
         else description.innerHTML = postDescription;
     }
@@ -102,6 +103,14 @@ $(document).ready(function() {
         // Adds card to the result div tag
         appendToResults.appendChild(link);
     }
+
+    // Clears the results
+    clearButton.onclick = function() {
+        appendToResults.innerHTML = null;
+        $("#clear").prop("disabled", true);
+        showMessage.innerHTML = "Type something ";
+        searchTerm.innerHTML = "and press enter.";
+    };
 
     // Initiate Wow Animation
     new WOW().init();

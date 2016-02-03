@@ -108,8 +108,8 @@ $(document).ready(function() {
     clearButton.onclick = function() {
         appendToResults.innerHTML = null;
         $("#clear").prop("disabled", true);
-        showMessage.innerHTML = "Type something ";
-        searchTerm.innerHTML = "and press enter.";
+        showMessage.innerHTML = "Oh look. everything is gone. ";
+        searchTerm.innerHTML = "So much WOW!";
     };
 
     // Initiate Wow Animation

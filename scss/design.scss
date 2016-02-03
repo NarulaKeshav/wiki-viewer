@@ -111,6 +111,23 @@ a:hover {
 .btn-fork:hover {
     background: #444;
 }
+.btn-clear,
+.btn-clear:focus {
+    @include transition(0.5s);
+    color: $primary;
+    font-weight: $normal;
+    font-size: 12px;
+    padding: 0;
+    margin-top: 12px;
+    text-transform: uppercase;
+    border: none;
+    float: right;
+    background: transparent;
+    outline: 0;
+}
+.btn-clear:disabled {
+    color: #CCC;
+}
 
 /* Text Property CSS */
 .font-property {
@@ -124,9 +141,9 @@ a:hover {
 }
 #card-title {
     @include transition(0.5s);
-    font-weight: $light;
+    font-weight: $normal;
     color: #777;
-    font-size: 20px;
+    font-size: 16px;
 }
 #card-description {
     @include transition(0.5s);

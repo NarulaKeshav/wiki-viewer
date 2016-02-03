@@ -18,23 +18,25 @@ html
     body
         .col-md-12.search
             .col-md-6.col-md-offset-3
-                p.header-title Wiki-Viewer
+                row
+                    .col-md-10
+                        p.header-title Wiki-Viewer
+                    .col-md-2
+                        button.btn-clear(id="clear", disabled="true") Clear
                 form
                     input.form-control(id="input", placeholder="type and press enter")
             .col-md-6.col-md-offset-3
-                .col-md-12#results
+                .col-md-12
                     .row
-                        p.showing-results 
-                            span#show-message Nothing to Show.  
-                            span#search-term Search for something
+                        p.showing-results
+                            span#show-message Get Results form WikiPedia instantly. 
+                            span#search-term Type and press Enter.
+                .col-md-12#results
                     
     
         a.btn.btn-random(href="http://en.wikipedia.org/wiki/Special:Random", target="_blank", id="random")
             span.fa.fa-random
             | &nbsp; Random
-        a.btn.btn-fork(href="http://en.wikipedia.org/wiki/Special:Random", target="_blank", id="random")
-            span.fa.fa-code-fork
-            | &nbsp; GitHub
 
         // JAVASCRIPT CDNs
         script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')

@@ -6,7 +6,7 @@ $white: #FFF;
 $light-gray: #AAA;
 $gray: #7F8C8D;
 $primary: #E74C3C;
-$secondary: #D94B3D;
+$secondary: #F26152;
 
 /* Declaring Variables */
 $background: #F2F4F6;
@@ -83,33 +83,30 @@ a:hover {
 
 /* Button CSS */
 .btn-random,
-.btn-random:focus,
-.btn-fork,
-.btn-fork:focus {
+.btn-random:focus {
     @include transition(0.5s);
     color: $white;
-    background: #AAA;
+    font-weight: $normal;
+    background: $primary;
     border-radius: 2px;
-    width: 100px;
     position: fixed;
     top: 30px;
     right: 30px;
-    padding: 8px 10px;
-    padding-top: 10px;
-    font-size: 12px;
+    padding: 8px 12px;
+    padding-top: 9px;
+    font-size: 11px;
     text-transform: uppercase;
+    outline: 0;
+    span {
+        @include transition(0.5s);
+    }
 }
-.btn-random:hover,
-.btn-fork:hover {
-    background: $primary;
+.btn-random:hover {
+    background: $secondary;
     color: $white;
-}
-.btn-fork,
-.btn-fork:focus {
-    top: 80px;
-}
-.btn-fork:hover {
-    background: #444;
+    span {
+        -webkit-transform: rotate(360deg);
+    }
 }
 .btn-clear,
 .btn-clear:focus {
@@ -166,3 +163,12 @@ a:hover {
 #search-term {
     color: $primary;
 }
+
+/* Media Queries */
+// @media(max-width: 768px) {
+//     .btn-random {
+//         position: fixed;
+//         bottom: 20px;
+//         right: 20px;
+//     }
+// }

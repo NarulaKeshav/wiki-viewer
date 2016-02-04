@@ -55,6 +55,9 @@ $(document).ready(function() {
                 for(var i = 0; i < data[1].length; i++) {
                     postTitle = data[1][i];
                     postDescription = data[2][i];
+                    if(postDescription.length >= 150) {
+                        postDescription = postDescription.substring(0, 150) + " ..";
+                    }
                     postLink = data[3][i];
 
                     // Create the card elements

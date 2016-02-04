@@ -115,7 +115,7 @@ $(document).ready(function() {
         link.setAttribute("href", postLink);
         link.setAttribute("target", "_blank");
 
-        card.className = "row card";
+        card.className = "row card wow fadeInLeft";
 
         title.setAttribute("id", "card-title");
         title.innerHTML = postTitle;

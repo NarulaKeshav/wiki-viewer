@@ -87,10 +87,10 @@ a:hover {
     @include transition(0.5s);
     color: $white;
     font-weight: $normal;
-    background: $primary;
+    background: $secondary;
     border-radius: 2px;
     position: fixed;
-    top: 30px;
+    bottom: 30px;
     right: 30px;
     padding: 8px 12px;
     padding-top: 9px;
@@ -102,7 +102,7 @@ a:hover {
     }
 }
 .btn-random:hover {
-    background: $secondary;
+    background: $primary;
     color: $white;
     span {
         -webkit-transform: rotate(360deg);
@@ -165,10 +165,11 @@ a:hover {
 }
 
 /* Media Queries */
-// @media(max-width: 768px) {
-//     .btn-random {
-//         position: fixed;
-//         bottom: 20px;
-//         right: 20px;
-//     }
-// }
+@media(max-width: 768px) {
+    .header-title {
+        text-align: center;
+    }
+    .btn-clear {
+        margin-bottom: 6px;
+    }
+}

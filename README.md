@@ -4,7 +4,7 @@ Wikipedia Viewer is an application that uses Wikipedia's API to get the search r
 <br>
 Along with that, you can decide to choose a random article, by clicking the random button, which is also displayed as a card.
 <br><br>
-View the project: [http://narulakeshav.github.io/wiki-viewer](http://narulakeshav.github.io/wiki-viewer)
+View the Wiki project: [http://narulakeshav.github.io/wiki-viewer](http://narulakeshav.github.io/wiki-viewer)
 <br><br>
 ![Screenshot](http://i.imgur.com/Qguczo3.png)
 

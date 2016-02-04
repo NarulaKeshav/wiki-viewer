@@ -4,7 +4,7 @@ $(document).ready(function() {
     "use strict";
     var d = document;
     var input = d.getElementById("input");
-    var button = d.getElementById("random");
+    var randomize = d.getElementById("random");
     var clearButton = d.getElementById("clear");
     var appendToResults = d.getElementById("results");
     var showMessage = d.getElementById("show-message");
@@ -18,13 +18,13 @@ $(document).ready(function() {
     // API endpoint
     var url = "http://en.wikipedia.org/w/api.php?action=opensearch&search=";
     var callback = "&callback=?";
+    var randomUrl = "https://en.wikipedia.org/w/api.php?action=query&generator=random&grnnamespace=0&prop=extracts&explaintext&exintro=&format=json&callback=?";
 
     // Searches for content when enter is triggered
     $("#input").keypress(function(event){
         if(event.keyCode == 13){
             event.preventDefault();
             generateURL(url);
-            console.log(input.value);
             $(".showing-results").css("display", "block");
             showMessage.innerHTML = "Showing Results for ";
             searchTerm.innerHTML = input.value;
@@ -37,6 +37,7 @@ $(document).ready(function() {
     function generateURL(url) {
         var value = input.value.replace(/ /g, "%20");
         var link = url + value  + callback;
+        console.log(link);
         search(link);
     }
 
@@ -62,6 +63,38 @@ $(document).ready(function() {
             }
         });
     }
+
+    // Shows a random card when the random button is clicked
+    randomize.onclick = function() {
+        // Clear buttons is enabled and the results are removed
+        $("#clear").prop("disabled", false);
+        appendToResults.innerHTML = null;
+
+        // Parses the randomURL and returns results
+        $.getJSON(randomUrl, function(data) {
+            // Gets the name of the ID key
+            var id = Object.keys(data.query.pages);
+            var uniqueID = id[0];
+            // Gets into uniqueID and gets the title and the description
+            var randomAccess = data.query.pages[uniqueID];
+            postTitle = randomAccess.title;
+
+            // Shortens the description down to around 150 characters
+            postDescription = randomAccess.extract;
+            if(postDescription.length >= 150) {
+                postDescription = postDescription.substring(0, 150) + " ..";
+            }
+
+            // Generates the URL for the random card
+            postLink = "https://en.wikipedia.org/wiki/" + postTitle.replace(/ /g, "_");
+
+            // Displays Showing Results for message
+            showMessage.innerHTML = "Showing Results for ";
+            searchTerm.innerHTML = postTitle;
+
+            createCardElements();
+        });
+    };
 
     // Creates the card elements
     function createCardElements() {

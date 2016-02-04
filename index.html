@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon and Title-->
+    <title id="page-title">Wikipedia Viewer</title>
+    <link rel="shortcut icon" href="favicon.png">
+    <!-- CSS CDNs-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- MY CSS FILE-->
+    <link rel="stylesheet" href="scss/design.css">
+  </head>
+  <body>
+    <div class="col-md-12 search">
+      <div class="col-md-6 col-md-offset-3">
+        <row>
+          <div class="col-md-10">
+            <p class="header-title wow fadeInDown">Wiki-Viewer</p>
+          </div>
+          <div class="col-md-2">
+            <button id="clear" disabled="true" class="btn-clear wow fadeInDown">Clear</button>
+          </div>
+        </row>
+        <form>
+          <input id="input" placeholder="type and press enter" class="form-control wow fadeInDown">
+        </form>
+      </div>
+      <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-12">
+          <div class="row">
+            <p class="showing-results wow fadeInDown"><span id="show-message">Get Results form WikiPedia instantly. </span><span id="search-term">Type and press Enter.</span></p>
+          </div>
+        </div>
+        <div id="results" class="col-md-12"></div>
+      </div>
+    </div>
+    <button id="random" class="btn btn-random wow bounceInRight"><span class="fa fa-random"></span>&nbsp; Random</button>
+    <!-- JAVASCRIPT CDNs-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <!-- MY JAVSCRIPT FILE-->
+    <script src="js/viewer.js"></script>
+  </body>
+</html>

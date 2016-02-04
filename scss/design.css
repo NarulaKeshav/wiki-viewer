@@ -1,0 +1,163 @@
+/* Importing Google Font */
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300);
+/* Color Declarations */
+/* Declaring Variables */
+/* Font Properties */
+/* Mixins*/
+/* General CSS */
+body {
+  background: #F2F4F6;
+  font-family: Roboto;
+  font-weight: 300;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+  padding-top: 50px; }
+
+a:focus,
+a:hover {
+  text-decoration: none; }
+
+/* Div Tags CSS */
+.form-control,
+.form-control:focus {
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  transition: all 0.5s;
+  font-weight: 300;
+  background: #FFF;
+  color: #444;
+  border: 0;
+  border-radius: 0;
+  margin: 0 auto;
+  box-shadow: none;
+  margin-top: 12px;
+  font-size: 18px;
+  padding: 30px 21px;
+  outline: 0;
+  margin-bottom: 30px; }
+
+::-webkit-input-placeholder {
+  color: #BBB; }
+
+.card {
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  transition: all 0.5s;
+  background: #FFF;
+  margin-bottom: 20px;
+  padding: 15px 20px;
+  border-left: 3px solid #7F8C8D; }
+
+.card:hover {
+  border-color: #E74C3C;
+  box-shadow: 0px 4px 6px #CCC;
+  cursor: pointer; }
+
+/* Button CSS */
+.btn-random,
+.btn-random:focus {
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  transition: all 0.5s;
+  color: #FFF;
+  font-weight: 400;
+  background: #F26152;
+  border-radius: 2px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 8px 12px;
+  padding-top: 9px;
+  font-size: 11px;
+  text-transform: uppercase;
+  outline: 0; }
+  .btn-random span,
+  .btn-random:focus span {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    transition: all 0.5s; }
+
+.btn-random:hover {
+  background: #E74C3C;
+  color: #FFF; }
+  .btn-random:hover span {
+    -webkit-transform: rotate(360deg); }
+
+.btn-clear,
+.btn-clear:focus {
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  transition: all 0.5s;
+  color: #E74C3C;
+  font-weight: 400;
+  font-size: 12px;
+  padding: 0;
+  margin-top: 12px;
+  text-transform: uppercase;
+  border: none;
+  float: right;
+  background: transparent;
+  outline: 0; }
+
+.btn-clear:disabled {
+  color: #CCC; }
+
+/* Text Property CSS */
+.font-property {
+  font-family: Roboto;
+  font-weight: 300; }
+
+.header-title {
+  font-size: 22px;
+  color: #888;
+  font-weight: 300; }
+
+#card-title {
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  transition: all 0.5s;
+  font-weight: 400;
+  color: #777;
+  font-size: 16px; }
+
+#card-description {
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  transition: all 0.5s;
+  color: #AAA;
+  font-size: 15px;
+  line-height: 24px; }
+
+.card:hover #card-title {
+  color: #444; }
+
+.card:hover #card-description {
+  color: #7F8C8D; }
+
+.showing-results {
+  text-transform: uppercase;
+  color: #888;
+  font-size: 12px;
+  font-weight: normal; }
+
+#search-term {
+  color: #E74C3C; }
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .header-title {
+    text-align: center; }
+
+  .btn-clear {
+    margin-bottom: 6px; } }
+
+/*# sourceMappingURL=design.css.map */

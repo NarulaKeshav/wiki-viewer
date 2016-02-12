@@ -20,6 +20,9 @@ $(document).ready(function() {
     var callback = "&callback=?";
     var randomUrl = "https://en.wikipedia.org/w/api.php?action=query&generator=random&grnnamespace=0&prop=extracts&explaintext&exintro=&format=json&callback=?";
 
+    // Focuses on the input when the page loads
+    $("#input").focus();
+
     // Searches for content when enter is triggered
     $("#input").keypress(function(event){
         if(event.keyCode == 13){

@@ -20,6 +20,9 @@ $(document).ready(function() {
     var callback = "&callback=?";
     var randomUrl = "https://en.wikipedia.org/w/api.php?action=query&generator=random&grnnamespace=0&prop=extracts&explaintext&exintro=&format=json&callback=?";
 
+    // Focuses on the input when the page loads
+    $("#input").focus();
+
     // Searches for content when enter is triggered
     $("#input").keypress(function(event){
         if(event.keyCode == 13){
@@ -115,7 +118,7 @@ $(document).ready(function() {
         link.setAttribute("href", postLink);
         link.setAttribute("target", "_blank");
 
-        card.className = "row card wow fadeInLeft";
+        card.className = "row card wow fadeInUp";
 
         title.setAttribute("id", "card-title");
         title.innerHTML = postTitle;
